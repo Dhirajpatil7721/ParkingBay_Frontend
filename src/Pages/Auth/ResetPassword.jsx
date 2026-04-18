@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { 
+import {
   ArrowBack,
   Lock,
   Visibility,
@@ -18,7 +18,7 @@ const ResetPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [mobile, setMobile] = useState('');
   const [isVerified, setIsVerified] = useState(false);
-  
+
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
@@ -122,17 +122,17 @@ const ResetPassword = () => {
   // Handle submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const newErrors = validateForm();
-    
+
     if (Object.keys(newErrors).length === 0) {
       setIsLoading(true);
-      
+
       // Simulate API call
       setTimeout(() => {
         setIsLoading(false);
         setSuccessMessage('Password reset successfully!');
-        
+
         // Redirect to login after 2 seconds
         setTimeout(() => {
           navigate('/auth/login');
@@ -150,18 +150,18 @@ const ResetPassword = () => {
 
   return (
     <div className="min-h-screen bg-background-body flex items-center justify-center p-4 overflow-hidden relative">
-      
+
       {/* Animated Background Elements using theme colors */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating circles */}
         <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
         <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute top-40 left-20 w-72 h-72 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-4000"></div>
-        
+
         {/* Animated lines */}
         <div className="absolute top-20 left-1/4 w-2 h-32 bg-gradient-to-b from-primary-400 to-secondary-400 rounded-full animate-pulse-slow"></div>
         <div className="absolute bottom-32 right-1/4 w-2 h-40 bg-gradient-to-t from-secondary-400 to-primary-400 rounded-full animate-pulse-slow animation-delay-1000"></div>
-        
+
         {/* Rotating squares */}
         <div className="absolute top-1/3 right-20 w-20 h-20 border-4 border-primary-200 rounded-lg animate-spin-slow opacity-50"></div>
         <div className="absolute bottom-1/4 left-20 w-16 h-16 border-4 border-secondary-200 rounded-lg animate-spin-slow animation-delay-1000 opacity-50"></div>
@@ -170,7 +170,7 @@ const ResetPassword = () => {
       {/* Reset Password Card */}
       <div className="relative w-full max-w-md">
         <div className="bg-background-card/90 backdrop-blur-lg rounded-2xl shadow-xl p-8 transform transition-all duration-500 animate-fade-in-up border border-border-light">
-          
+
           {/* Back Button */}
           <button
             onClick={handleBack}
@@ -186,12 +186,12 @@ const ResetPassword = () => {
                 <Lock className="w-10 h-10 text-primary-contrast -rotate-45 hover:rotate-0 transition-all duration-500" />
               </div>
             </div>
-            
+
             <h1 className="font-heading font-bold mb-2">
               <span className="text-4xl text-primary-main">Reset</span>
               <span className="text-4xl text-secondary-main"> Password</span>
             </h1>
-            
+
             {isVerified && (
               <div className="flex items-center justify-center space-x-2 mt-2">
                 <Verified className="w-5 h-5 text-success-main" />
@@ -200,7 +200,7 @@ const ResetPassword = () => {
                 </p>
               </div>
             )}
-            
+
             <p className="text-text-secondary font-body text-sm mt-2">
               Create a new password for your account
             </p>
@@ -217,14 +217,13 @@ const ResetPassword = () => {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            
+
             {/* New Password Field */}
             <div className="space-y-2">
               <div className="relative group animate-slide-right">
                 <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                  <Lock className={`w-5 h-5 transition-all duration-300 ${
-                    errors.password ? 'text-error-main' : 'text-neutral-400 group-focus-within:text-primary-500'
-                  }`} />
+                  <Lock className={`w-5 h-5 transition-all duration-300 ${errors.password ? 'text-error-main' : 'text-neutral-400 group-focus-within:text-primary-500'
+                    }`} />
                 </div>
                 <input
                   type={showPassword ? 'text' : 'password'}
@@ -232,10 +231,10 @@ const ResetPassword = () => {
                   onChange={handlePasswordChange}
                   className={`w-full pl-12 pr-12 py-4 text-base font-body border-2 rounded-xl outline-none transition-all duration-300 bg-background-card
                     placeholder-text-disabled focus:placeholder-primary-300
-                    ${errors.password 
-                      ? 'border-error-main focus:border-error-main bg-error-light/10' 
-                      : password 
-                        ? 'border-primary-500 bg-primary-50/30' 
+                    ${errors.password
+                      ? 'border-error-main focus:border-error-main bg-error-light/10'
+                      : password
+                        ? 'border-primary-500 bg-primary-50/30'
                         : 'border-border-light focus:border-primary-500 hover:border-primary-300 focus:ring-4 focus:ring-primary-100'
                     }`}
                   placeholder="New password"
@@ -259,9 +258,8 @@ const ResetPassword = () => {
             <div className="space-y-2">
               <div className="relative group animate-slide-right animation-delay-200">
                 <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                  <Lock className={`w-5 h-5 transition-all duration-300 ${
-                    errors.confirmPassword ? 'text-error-main' : 'text-neutral-400 group-focus-within:text-primary-500'
-                  }`} />
+                  <Lock className={`w-5 h-5 transition-all duration-300 ${errors.confirmPassword ? 'text-error-main' : 'text-neutral-400 group-focus-within:text-primary-500'
+                    }`} />
                 </div>
                 <input
                   type={showConfirmPassword ? 'text' : 'password'}
@@ -269,10 +267,10 @@ const ResetPassword = () => {
                   onChange={handleConfirmPasswordChange}
                   className={`w-full pl-12 pr-12 py-4 text-base font-body border-2 rounded-xl outline-none transition-all duration-300 bg-background-card
                     placeholder-text-disabled focus:placeholder-primary-300
-                    ${errors.confirmPassword 
-                      ? 'border-error-main focus:border-error-main bg-error-light/10' 
+                    ${errors.confirmPassword
+                      ? 'border-error-main focus:border-error-main bg-error-light/10'
                       : confirmPassword && password === confirmPassword
-                        ? 'border-success-main bg-success-light/20' 
+                        ? 'border-success-main bg-success-light/20'
                         : 'border-border-light focus:border-primary-500 hover:border-primary-300 focus:ring-4 focus:ring-primary-100'
                     }`}
                   placeholder="Confirm new password"
@@ -304,17 +302,16 @@ const ResetPassword = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-xs font-body text-text-secondary">Password strength</span>
-                    <span className={`text-xs font-heading font-semibold ${
-                      getPasswordStrengthPercent() <= 40 ? 'text-error-main' :
-                      getPasswordStrengthPercent() <= 60 ? 'text-warning-main' :
-                      getPasswordStrengthPercent() <= 80 ? 'text-primary-600' :
-                      'text-success-main'
-                    }`}>
+                    <span className={`text-xs font-heading font-semibold ${getPasswordStrengthPercent() <= 40 ? 'text-error-main' :
+                        getPasswordStrengthPercent() <= 60 ? 'text-warning-main' :
+                          getPasswordStrengthPercent() <= 80 ? 'text-primary-600' :
+                            'text-success-main'
+                      }`}>
                       {getPasswordStrengthText()}
                     </span>
                   </div>
                   <div className="w-full h-2 bg-neutral-200 rounded-full overflow-hidden">
-                    <div 
+                    <div
                       className={`h-full transition-all duration-500 ${getPasswordStrengthColor()}`}
                       style={{ width: `${getPasswordStrengthPercent()}%` }}
                     ></div>

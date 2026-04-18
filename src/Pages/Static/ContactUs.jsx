@@ -442,7 +442,8 @@
 
 // export default ContactUs;
 
-// src/Pages/Static/ContactUs.jsx
+
+
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react';

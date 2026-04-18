@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
     // baseURL: "https://parkingbay.in/api", 
-    baseURL: "http://localhost:5000/api", 
+    baseURL: "http://localhost:5000/api",
     headers: {
         "Content-Type": "application/json",
     },
@@ -13,15 +13,8 @@ api.interceptors.request.use(
     (config) => {
         // Get token from localStorage
         const token = localStorage.getItem('token');
-        
-        // Debug log
-        // console.log('🔍 API Request:', {
-        //     url: config.url,
-        //     method: config.method,
-        //     hasToken: !!token,
-        // });
 
-        // If token exists, add it to headers
+
         if (token) {
             // Remove any quotes if present
             const cleanToken = token.replace(/"/g, '');
@@ -29,7 +22,7 @@ api.interceptors.request.use(
         } else {
             console.warn('⚠️ No token found in localStorage');
         }
-        
+
         return config;
     },
     (error) => {
@@ -55,15 +48,15 @@ api.interceptors.response.use(
         // Handle 401 Unauthorized errors
         if (error.response?.status === 401) {
             console.log('🔒 Unauthorized - redirecting to login');
-            
+
             // Clear all storage
             localStorage.clear();
             sessionStorage.clear();
-            
+
             // Redirect to login page
             window.location.href = '/auth/login';
         }
-        
+
         return Promise.reject(error);
     }
 );
