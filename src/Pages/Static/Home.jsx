@@ -197,9 +197,9 @@ const Home = () => {
             <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl mb-3 md:mb-4">
               How It <span className="text-primary-600">Works</span>
             </h2>
-            <p classsName="text-text-secondary text-sm md:text-base">Complete parking management in four simple steps</p>
+            <p className="text-text-secondary text-sm md:text-base">Complete parking management in four simple steps</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
             {[
               {
                 number: '01',
@@ -226,9 +226,9 @@ const Home = () => {
                 icon: <Settings className="w-6 h-6 md:w-8 md:h-8" />
               },
             ].map((step, index) => (
-              <div key={index} className=" relative animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
+              <div key={index} className="relative animate-slide-up w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] min-w-[250px] max-w-full" style={{ animationDelay: `${index * 100}ms` }}>
                 {/* Card Box */}
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
                   {/* Icon Circle */}
                   <div className="w-14 h-14 md:w-16 md:h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-100 transition-colors duration-300">
                     <div className="text-primary-600 group-hover:scale-110 transition-transform duration-300">
@@ -259,7 +259,7 @@ const Home = () => {
       </section>
 
       {/* ── Vehicle Tracking ── */}
-      <section className="section-padding bg-background-body">
+      {/* <section className="section-padding bg-background-body">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="animate-slide-right text-center lg:text-left">
@@ -306,10 +306,10 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Staff Management ── */}
-      <section className="section-padding bg-background-card">
+      {/* <section className="section-padding bg-background-card">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="order-2 lg:order-1 animate-slide-right mt-4 lg:mt-0">
@@ -362,7 +362,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── Payment Options ── */}
       <section className="section-padding bg-gradient-to-br from-primary-50 to-secondary-50">
